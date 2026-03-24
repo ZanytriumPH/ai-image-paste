@@ -1,0 +1,93 @@
+{
+  "name": "ai-image-paste",
+  "publisher": "Zwing",
+  "displayName": "AI Image Paste",
+  "description": "快捷键提取剪贴板图片，使用视觉大模型(Vision LLM)精准识别表格与代码，并粘贴为 Markdown",
+  "version": "0.0.2",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZanytriumPH/ai-image-paste.git"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "aiImagePaste.paste",
+        "title": "AI Image Paste: 识别剪贴板图片并粘贴"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "aiImagePaste.paste",
+        "key": "ctrl+shift+z",
+        "mac": "cmd+shift+z",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": {
+      "title": "AI Image Paste 配置",
+      "properties": {
+        "aiImagePaste.apiKey": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "大模型 API Key（例如通义千问或智谱的 API Key）。"
+        },
+        "aiImagePaste.apiUrl": {
+          "type": "string",
+          "default": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+          "enum": [
+            "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+            "https://open.bigmodel.cn/api/paas/v4/chat/completions"
+          ],
+          "description": "大模型 API 接口完整地址（必须精确到 /chat/completions）。"
+        },
+        "aiImagePaste.model": {
+          "type": "string",
+          "default": "qwen-vl-plus",
+          "enum": [
+            "qwen-vl-plus",
+            "qwen-vl-max",
+            "qwen-vl-max-latest",
+            "qwen3-vl-flash",
+            "GLM-4.1V-Thinking-Flash",
+            "GLM-4.6V-Flash"
+          ],
+          "description": "使用的视觉大模型名称（必须是支持图像识别的多模态模型）。"
+        },
+        "aiImagePaste.prompt": {
+          "type": "string",
+          "editPresentation": "multilineText",
+          "default": "你是一个专家级代码和表格提取助手。请提取图片中的文本并严格遵守以下规则：\n1. 包含表格时，输出标准 Markdown 表格。\n2. 保持代码原有的缩进和符号。\n3. 关键规则：对于图片中出现的代码片段、函数名、变量名、类名或特定语法格式，务必使用 Markdown 的行内代码格式（即用单反引号包裹）。\n4. 直接输出最终的 Markdown 结果，绝对不要包含“好的”、“识别结果如下”等任何废话。",
+          "description": "自定义发送给大模型的系统提示词。你可以通过修改这里来改变 AI 的识别偏好（支持多行输入）。"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.80.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "axios": "^1.6.8"
+  }
+}
