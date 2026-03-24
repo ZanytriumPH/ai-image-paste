@@ -3,7 +3,7 @@
   "publisher": "Zwing",
   "displayName": "AI Image Paste",
   "description": "快捷键提取剪贴板图片，使用视觉大模型(Vision LLM)精准识别表格与代码，并粘贴为 Markdown",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "icon": "icon.png",
   "license": "MIT",
   "engines": {
@@ -44,29 +44,17 @@
         "aiImagePaste.apiUrl": {
           "type": "string",
           "default": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
-          "enum": [
-            "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
-            "https://open.bigmodel.cn/api/paas/v4/chat/completions"
-          ],
-          "description": "大模型 API 接口完整地址（必须精确到 /chat/completions）。"
+          "markdownDescription": "大模型 API 接口完整地址（必须精确到 `/chat/completions`）。\n\n**推荐地址参考：**\n* 阿里云: `https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions`\n* 智谱 AI: `https://open.bigmodel.cn/api/paas/v4/chat/completions`。"
         },
         "aiImagePaste.model": {
           "type": "string",
           "default": "qwen-vl-plus",
-          "enum": [
-            "qwen-vl-plus",
-            "qwen-vl-max",
-            "qwen-vl-max-latest",
-            "qwen3-vl-flash",
-            "GLM-4.1V-Thinking-Flash",
-            "GLM-4.6V-Flash"
-          ],
-          "description": "使用的视觉大模型名称（必须是支持图像识别的多模态模型）。"
+          "markdownDescription": "使用的视觉大模型名称（支持随意输入你的自定义模型名）。\n\n**常用视觉模型参考：**\n* 通义千问: `qwen-vl-plus`, `qwen-vl-max`, `qwen-vl-max-latest`, `qwen3-vl-flash`\n* 智谱 AI: `GLM-4.1V-Thinking-Flash`, `GLM-4.6V-Flash`"
         },
         "aiImagePaste.prompt": {
           "type": "string",
           "editPresentation": "multilineText",
-          "default": "你是一个专家级代码和表格提取助手。请提取图片中的文本并严格遵守以下规则：\n1. 包含表格时，输出标准 Markdown 表格。\n2. 保持代码原有的缩进和符号。\n3. 关键规则：对于图片中出现的代码片段、函数名、变量名、类名或特定语法格式，务必使用 Markdown 的行内代码格式（即用单反引号包裹）。\n4. 直接输出最终的 Markdown 结果，绝对不要包含“好的”、“识别结果如下”等任何废话。",
+          "default": "你是一个专家级代码和表格提取助手。请提取图片中的文本并严格遵守以下规则：\n1. 包含表格时，输出标准 Markdown 表格。\n2. 保持代码原有的缩进和符号。\n3. 关键规则：对于图片中出现的代码片段、函数名、变量名、类名或特定语法格式，务必使用 Markdown 的行内代码格式（即用单反引号包裹）。\n4. 如果图片中有数学公式，请使用美元符包裹的 Latex 格式。\n5. 直接输出最终的 Markdown 结果，绝对不要包含“好的”、“识别结果如下”等任何废话。",
           "description": "自定义发送给大模型的系统提示词。你可以通过修改这里来改变 AI 的识别偏好（支持多行输入）。"
         }
       }
