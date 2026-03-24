@@ -4,6 +4,7 @@
   "displayName": "AI Image Paste",
   "description": "快捷键提取剪贴板图片，使用视觉大模型(Vision LLM)精准识别表格与代码，并粘贴为 Markdown",
   "version": "0.0.2",
+  "icon": "icon.png",
   "engines": {
     "vscode": "^1.80.0"
   },
