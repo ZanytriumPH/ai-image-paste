@@ -1,5 +1,9 @@
 # AI Image Paste (AI 视觉图片粘贴)
 
+![Version](https://vsmarketplacebadges.dev/version/Zwing.ai-image-paste.svg)
+![Installs](https://vsmarketplacebadges.dev/installs-short/Zwing.ai-image-paste.svg)
+![Ratings](https://vsmarketplacebadges.dev/rating-star/Zwing.ai-image-paste.svg)
+
 这是一个为程序员和撰稿人量身定制的 VS Code 终极效率插件。它能够拦截你剪贴板中的截图，调用当前最先进的**多模态视觉大模型 (Vision LLM)** 进行超高精度的 OCR 识别，并将结果以极其完美的 Markdown 格式直接插入到你的光标位置。
 
 告别错字连篇、丢失排版的传统老旧 OCR！
@@ -39,7 +43,7 @@
 * 目前提取剪贴板底层使用了原生 PowerShell 命令，尚未适配 macOS 和 Linux 系统下的剪贴板图片读取。
 * 必须确保剪贴板中是“图片数据”（截图），而不是“图片文件”。
 
-## 📝 发行说明 (Release Notes)
+## 📝 发行说明
 
 ### 0.0.3
 
