@@ -2,8 +2,8 @@
   "name": "ai-image-paste",
   "publisher": "Zwing",
   "displayName": "AI Image Paste",
-  "description": "快捷键提取剪贴板图片，使用视觉大模型(Vision LLM)精准识别表格与代码，并粘贴为 Markdown",
-  "version": "0.0.6",
+  "description": "Extract clipboard images via shortcut, accurately recognize content using Vision LLMs, and insert at the cursor in customizable text formats.",
+  "version": "0.0.7",
   "icon": "icon.png",
   "license": "MIT",
   "engines": {
