@@ -1,29 +1,36 @@
-# Change Log
+# 更新日志 (Change Log)
 
-All notable changes to the "ai-image-paste" extension will be documented in this file.
+本项目 "ai-image-paste" 插件的所有重要更改都将记录在此文件中。
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+本文档的排版格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/) 规范，
+并且本项目严格遵循 [语义化版本控制 (Semantic Versioning)](https://semver.org/lang/zh-CN/)。
+
+## [0.0.6] - 2026-03-25
+
+* 📝 优化：将插件说明文档中的“发行说明”迁移至更改日志 (CHANGELOG) 中，保持主页整洁。
+
+## [0.0.5] - 2026-03-25
+
+* 📝 优化：插件说明文档对设置快捷键的补充及简洁化。
+
+## [0.0.4] - 2026-03-25
+
+* 🚀 打包升级：使用 esbuild 进行代码构建与瘦身，插件体积从 45MB 极速优化至 330KB！
+* ✨ 新增：默认提示词中添加“识别到数学公式则自动转为 LaTeX 格式”的功能。
+* 📝 优化：插件说明文档添加动态数据徽章 (Badges)。
 
 ## [0.0.3] - 2026-03-24
 
-### Changed
-
-- 解除了设置面板中 `API URL` 和 `Model` 的下拉列表限制，全面支持用户手动输入自定义的大模型地址与模型名称。
-- 优化了设置面板的 UI，增加了主流大模型配置（如通义千问、智谱 GLM）的 Markdown 格式参考说明。
+* 🛠️ 优化：解除 API URL 和 Model 的下拉列表限制，全面支持用户手动输入自定义的大模型地址与模型名称。
+* 📝 优化：在设置面板中增加了主流视觉大模型配置的参考说明。
 
 ## [0.0.2] - 2026-03-24
 
-### Added
+* 🚀 核心架构升级：抛弃传统基础 OCR API，全面接入多模态视觉大语言模型 (Vision LLM)。
+* ✨ 新增：极其精准的 Markdown 表格格式化能力。
+* ✨ 新增：智能识别代码片段，并自动添加 Markdown 行内代码高亮。
+* 🛠️ 优化：支持在设置中自定义系统 Prompt (提示词)，解锁更多 AI 识别玩法。
 
-- 🚀 核心架构大升级：全面接入多模态视觉大语言模型 (Vision LLM)。
-- 极其精准的 Markdown 表格格式化能力。
-- 智能识别图片中的代码片段、函数名、变量名，并自动添加 Markdown 行内代码高亮（使用单反引号包裹）。
-- 支持用户在设置中完全自定义系统 Prompt（提示词），解锁更多 AI 识别玩法（如自动翻译等）。
+## [0.0.1] - 2026-03-24
 
-## [0.0.1] - 2026-03-23
-
-### Added
-
-- 初始版本发布 (Initial release)。
-- 实现基础的剪贴板图片提取与读取功能（仅限 Windows 平台）。
+* 初始测试版本发布，基于传统 OCR API 实现基础功能。
